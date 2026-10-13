@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bio-Edge AMD • Monitoreo Ecológico & Conteo Inteligente</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo-area">
+        <div class="badge-amd">AMD RYZEN AI • RADEON</div>
+        <h1>Bio-Edge <span class="highlight">AMD</span></h1>
+        <p class="subtitle">Monitoreo Ecológico & Conteo Inteligente en el Borde</p>
+      </div>
+
+      <div class="system-status">
+        <div class="status-pill active" id="statusPill">
+          <span class="dot"></span> <span id="statusText">CONECTANDO...</span>
+        </div>
+        <div class="device-pill" id="devicePill">AMD DirectML</div>
+      </div>
+    </header>
+
+    <!-- Main Grid -->
+    <main class="dashboard-grid">
+      <!-- Left Column: Video & Stream Controls -->
+      <section class="video-section">
+        <div class="card video-card">
+          <div class="card-header">
+            <h2>STREAM DE BORDE EN TIEMPO REAL</h2>
+            <div class="live-indicator"><span class="pulse"></span> EN VIVO</div>
+          </div>
+
+          <div class="video-container">
+            <img id="streamCanvas" src="" alt="Stream de video procesado" />
+            <div id="videoPlaceholder" class="video-placeholder">
+              <div class="spinner"></div>
+              <p>Esperando fotogramas de la cámara o generador...</p>
+            </div>
+            
+            <!-- Floating Quick HUD -->
+            <div class="hud-overlay">
+              <div class="hud-item"><span class="hud-label">FPS:</span> <strong id="hudFps">0.0</strong></div>
+              <div class="hud-item"><span class="hud-label">LATENCIA:</span> <strong id="hudLat">0.0 ms</strong></div>
+              <div class="hud-item"><span class="hud-label">DISPOSITIVO:</span> <strong id="hudDevice">--</strong></div>
+            </div>
+          </div>
+
+          <!-- Live Toggle for Jury -->
+          <div class="demo-controls">
+            <span class="control-label">Modo para Demo del Jurado:</span>
+            <div class="btn-group">
+              <button class="btn btn-amd active" id="btnSwitchAmd">⚡ ACELERADOR AMD (NPU/GPU)</button>
+              <button class="btn btn-cpu" id="btnSwitchCpu">🐢 CPU ESTÁNDAR (BASELINE)</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Biological Counts Summary -->
+        <div class="card counts-card">
+          <div class="card-header">
+            <h2>CENSO DINÁMICO & CONTEO DIRECCIONAL POR ESPECIE</h2>
+            <span class="badge">SQLite WAL</span>
+          </div>
+
+          <div class="species-grid" id="speciesGrid">
+            <!-- Dynamic Species Cards -->
+            <div class="species-item">
+              <div class="species-name">🐆 Jaguar</div>
+              <div class="species-stats">
+                <span class="stat-in">In: <strong>4</strong></span>
+                <span class="stat-out">Out: <strong>2</strong></span>
+              </div>
+            </div>
+            <div class="species-item">
+              <div class="species-name">🦌 Venado Cola Blanca</div>
+              <div class="species-stats">
+                <span class="stat-in">In: <strong>14</strong></span>
+                <span class="stat-out">Out: <strong>9</strong></span>
+              </div>
+            </div>
+            <div class="species-item">
+              <div class="species-name">🐗 Tapir / Pecarí</div>
+              <div class="species-stats">
+                <span class="stat-in">In: <strong>7</strong></span>
+                <span class="stat-out">Out: <strong>5</strong></span>
+              </div>
+            </div>
+            <div class="species-item alert-threat">
+              <div class="species-name">🚨 Intrusión Humana</div>
+              <div class="species-stats">
+                <span class="stat-in">Alertas: <strong>1</strong></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: AMD Benchmarks & Metrics -->
+      <section class="metrics-section">
+        <!-- Live Benchmark Comparator -->
+        <div class="card benchmark-card">
+          <div class="card-header">
+            <h2>COMPARATIVA EN VIVO: CPU vs. SILICIO AMD</h2>
+            <button class="btn-refresh" id="btnRunBenchmark">🔄 Ejecutar Test</button>
+          </div>
+
+          <div class="comparison-summary">
+            <div class="speedup-box">
+              <div class="speedup-number" id="speedupVal">5.6x</div>
+              <div class="speedup-desc">Factor de Aceleración en Borde</div>
+            </div>
+            <div class="metric-highlights">
+              <div class="highlight-item">
+                <span>Reducción de Latencia:</span>
+                <strong class="green-text" id="latencyRedVal">-82.1%</strong>
+              </div>
+              <div class="highlight-item">
+                <span>Incremento de Cadencia:</span>
+                <strong class="green-text" id="fpsGainVal">+460% FPS</strong>
+              </div>
+              <div class="highlight-item">
+                <span>Meta KPI AMD (<25ms, >45FPS):</span>
+                <strong class="kpi-badge" id="kpiStatus">CUMPLIDA</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bar Comparison -->
+          <div class="chart-bars">
+            <div class="chart-group">
+              <div class="chart-title">Latencia por Frame (Menor es mejor)</div>
+              <div class="bar-row">
+                <span class="bar-label">CPU Baseline</span>
+                <div class="bar-track">
+                  <div class="bar-fill bar-cpu" style="width: 90%;">108.5 ms</div>
+                </div>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">AMD Silicio</span>
+                <div class="bar-track">
+                  <div class="bar-fill bar-amd" style="width: 18%;">19.4 ms</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="chart-group">
+              <div class="chart-title">Cadencia Throughput (Mayor es mejor)</div>
+              <div class="bar-row">
+                <span class="bar-label">CPU Baseline</span>
+                <div class="bar-track">
+                  <div class="bar-fill bar-cpu" style="width: 18%;">9.2 FPS</div>
+                </div>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">AMD Silicio</span>
+                <div class="bar-track">
+                  <div class="bar-fill bar-amd" style="width: 92%;">51.5 FPS</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Telemetry Details -->
+        <div class="card telemetry-card">
+          <div class="card-header">
+            <h2>TELEMETRÍA DE HARDWARE EN BORDE</h2>
+          </div>
+          <div class="telemetry-table">
+            <div class="tel-row">
+              <span>Proveedor ONNX Runtime:</span>
+              <strong id="telProvider">DmlExecutionProvider</strong>
+            </div>
+            <div class="tel-row">
+              <span>Acelerador Activo:</span>
+              <strong id="telDevice">AMD Radeon Graphics</strong>
+            </div>
+            <div class="tel-row">
+              <span>Uso de CPU Host:</span>
+              <strong id="telCpu">18.2%</strong>
+            </div>
+            <div class="tel-row">
+              <span>Persistencia ACID:</span>
+              <strong class="green-text">SQLite WAL Activo</strong>
+            </div>
+            <div class="tel-row">
+              <span>Conexión de Red:</span>
+              <strong class="green-text">100% Autónomo (Offline)</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Hackathon AMD Acto 3 • Solución Desarrollada por: <strong>Emilio, Angela, Cisneros, Angel, Elida & Mario</strong></p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

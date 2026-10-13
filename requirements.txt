@@ -1,0 +1,27 @@
+# Bio-Edge AMD Core Dependencies
+# Compatible con Windows, Linux y Docker
+
+# AI Runtime & Computo
+# Nota: Para Windows con GPU Radeon, instalar onnxruntime-directml
+# Para NPU Ryzen AI, instalar onnxruntime-vitisai
+# Para Linux con ROCm, instalar onnxruntime-rocm
+onnxruntime>=1.16.0; sys_platform != "win32"
+onnxruntime-directml>=1.16.0; sys_platform == "win32"
+numpy>=1.24.0,<2.1.0
+
+# Vision & Video Processing
+opencv-python-headless>=4.8.0.76
+
+# Web Backend, API & Sockets
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+websockets>=12.0
+pydantic>=2.5.0
+
+# Telemetria & Utilidades
+psutil>=5.9.0
+
+# Testing & QA
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+httpx>=0.25.0

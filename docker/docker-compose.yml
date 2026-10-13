@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  bio-edge:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: bio_edge_amd_node
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - BIOEDGE_DEVICE=cpu
+      - BIOEDGE_SOURCE=0
+    volumes:
+      - ../data:/app/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
