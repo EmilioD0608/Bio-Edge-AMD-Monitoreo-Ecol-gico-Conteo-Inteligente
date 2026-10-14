@@ -4,7 +4,6 @@ from onnxruntime.quantization import quantize_dynamic, QuantType
 def quantize_yolov8_int8():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     
-    # Posibles rutas donde podría estar el archivo onnx
     possible_paths = [
         os.path.join(base_dir, "yolov8n.onnx"),
         os.path.join(base_dir, "models", "yolov8n.onnx"),

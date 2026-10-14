@@ -3,7 +3,6 @@ from ultralytics import YOLO
 
 def validate_map_retention():
     print("Cargando modelo para validación de precisión (mAP@50)...")
-    # Cargamos el modelo preentrenado base como referencia (FP32) y el cuantizado o exportado
     model = YOLO("yolov8n.pt")
     
     print("Ejecutando validación en dataset de prueba (streaming/coco8 de referencia)...")
