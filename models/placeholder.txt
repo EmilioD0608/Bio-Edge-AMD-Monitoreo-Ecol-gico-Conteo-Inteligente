@@ -4,3 +4,4 @@ Coloque aquí los modelos cuantizados en formato ONNX:
 - fastvit_wildlife_int8.onnx
 
 Para pruebas y desarrollo sin modelo descargado, Bio-Edge AMD cuenta con un generador sintético y mock engine que permite probar el pipeline de punta a punta.
+
